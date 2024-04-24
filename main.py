@@ -280,7 +280,7 @@ def olimp2(message, param=None):
 def olimp3(message):
     print(message.from_user.id)
 
-    markup = telebot.types.InlineKeyboardMarkup(row_width=3)
+    markup = telebot.types.InlineKeyboardMarkup(row_width=1)
     bl = []
     for i in resols[:-24]:
         button = telebot.types.InlineKeyboardButton(str(i[0]), callback_data=f"test_{str(i[0][-30:])}")
