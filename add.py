@@ -112,7 +112,7 @@ class AddDataWindow(QWidget):
             self.data_bonus_layout.addLayout(data_bonus_layout)
 
     def add_data(self):
-        connection = sqlite3.connect("Проект Школа.sqlite")
+        connection = sqlite3.connect("Проект Лиц.sqlite")
         cursor = connection.cursor()
 
         name = self.name_input.text()
