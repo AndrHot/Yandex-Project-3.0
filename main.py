@@ -3,7 +3,6 @@ import schedule
 import time
 from datetime import datetime
 import sqlite3
-import telegram
 import random
 
 con = sqlite3.connect("Проект Школа.sqlite")
