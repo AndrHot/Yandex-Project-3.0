@@ -5,13 +5,13 @@ from datetime import datetime
 import sqlite3
 import random
 
-con = sqlite3.connect("Проект Школа.sqlite")
+con = sqlite3.connect("Проект Лиц.sqlite")
 cur = con.cursor()
 res666 = cur.execute(f"""SELECT id FROM V 
     WHERE name = ("МГУ")""").fetchall()
 print(res666)
 con.close()
-con2 = sqlite3.connect("Проект Школа.sqlite")
+con2 = sqlite3.connect("Проект Лиц.sqlite")
 cur2 = con2.cursor()
 res2 = cur2.execute(f"""SELECT ol_id FROM O_V 
         WHERE v_id = {res666[0][0]}""").fetchall()
@@ -20,7 +20,7 @@ print(res2)
 o00 = []
 for i in res2:
 
-    con3 = sqlite3.connect("Проект Школа.sqlite")
+    con3 = sqlite3.connect("Проект Лиц.sqlite")
     cur3 = con3.cursor()
     res3 = cur3.execute(f"""SELECT name FROM O 
                 WHERE id = {i[0]}""").fetchall()
@@ -30,13 +30,13 @@ for i in res2:
     print(res3)
 
 
-con = sqlite3.connect("Проект Школа.sqlite")
+con = sqlite3.connect("Проект Лиц.sqlite")
 cur = con.cursor()
 res222 = cur.execute(f"""SELECT id FROM V 
     WHERE name = ("ВШЭ")""").fetchall()
 print(res222)
 con.close()
-con2 = sqlite3.connect("Проект Школа.sqlite")
+con2 = sqlite3.connect("Проект Лиц.sqlite")
 cur2 = con2.cursor()
 res2 = cur2.execute(f"""SELECT ol_id FROM O_V 
         WHERE v_id = {res222[0][0]}""").fetchall()
@@ -45,7 +45,7 @@ print(res2)
 o33 = []
 for i in res2:
 
-    con3 = sqlite3.connect("Проект Школа.sqlite")
+    con3 = sqlite3.connect("Проект Лиц.sqlite")
     cur3 = con3.cursor()
     res3 = cur3.execute(f"""SELECT name FROM O 
                 WHERE id = {i[0]}""").fetchall()
@@ -62,12 +62,12 @@ def get_parameter(text):
         return ' '.join(text.split()[1:]) if len(text.split()) > 1 else False
     except:
         return False
-con = sqlite3.connect("Проект Школа.sqlite")
+con = sqlite3.connect("Проект Лиц.sqlite")
 cur = con.cursor()
 resols = cur.execute(f"""SELECT name, link FROM O""").fetchall()
 con.close()
 bot = telebot.TeleBot('6938592889:AAG3lk3iwpOG1ag-wHvkyU5wEH0sfLbclSo')
-con = sqlite3.connect("Проект Школа.sqlite")
+con = sqlite3.connect("Проект Лиц.sqlite")
 cur = con.cursor()
 res = cur.execute(f"""SELECT name, dates FROM O 
     """).fetchall()
@@ -80,7 +80,7 @@ for i in res:
 jobs = {}
 
 o = []
-con = sqlite3.connect("Проект Школа.sqlite")
+con = sqlite3.connect("Проект Лиц.sqlite")
 cur = con.cursor()
 res = cur.execute(f"""SELECT name, link FROM O""").fetchall()
 
@@ -104,7 +104,7 @@ def help_message1(message):
 
 
 def job(chat_id, olimpiad, key):
-    con = sqlite3.connect("Проект Школа.sqlite")
+    con = sqlite3.connect("Проект Лиц.sqlite")
     cur = con.cursor()
     res = cur.execute(f"""SELECT link FROM O 
             WHERE name = ("{(olimpiad)}")""").fetchall()
@@ -201,13 +201,13 @@ def olimp2(message, param=None):
         if param is None:
             param = get_parameter(message.text)
 
-        con = sqlite3.connect("Проект Школа.sqlite")
+        con = sqlite3.connect("Проект Лиц.sqlite")
         cur = con.cursor()
         res = cur.execute(f"""SELECT id FROM O 
             WHERE name = ("{param}")""").fetchall()
         print(res)
         con.close()
-        con2 = sqlite3.connect("Проект Школа.sqlite")
+        con2 = sqlite3.connect("Проект Лиц.sqlite")
         cur2 = con2.cursor()
         res2 = cur2.execute(f"""SELECT v_id, requirements, BVI, points FROM O_V 
                 WHERE ol_id = {res[0][0]}""").fetchall()
@@ -216,7 +216,7 @@ def olimp2(message, param=None):
         bon = 'Бонусы: \n'
         for i in res2:
 
-            con3 = sqlite3.connect("Проект Школа.sqlite")
+            con3 = sqlite3.connect("Проект Лиц.sqlite")
             cur3 = con3.cursor()
             res3 = cur3.execute(f"""SELECT name, link FROM V 
                         WHERE id = {i[0]}""").fetchall()
@@ -246,7 +246,7 @@ def olimp2(message, param=None):
         print(o)
 
 
-        con = sqlite3.connect("Проект Школа.sqlite")
+        con = sqlite3.connect("Проект Лиц.sqlite")
         cur = con.cursor()
         res = cur.execute(f"""SELECT * FROM O 
             WHERE name = ("{param}")""").fetchall()
@@ -297,7 +297,7 @@ def olimp3(message):
 
 @bot.message_handler(commands=["univ_list"])
 def olimp4(message):
-    con = sqlite3.connect("Проект Школа.sqlite")
+    con = sqlite3.connect("Проект Лиц.sqlite")
     cur = con.cursor()
     res = cur.execute(f"""SELECT name, link FROM V""").fetchall()
     print(res)
